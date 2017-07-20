@@ -1,0 +1,262 @@
+@background-title: #000;
+@foreground-title: #FFF;
+@background-text: #FFF;
+@foreground-text: #000;
+@title-font-family: 'Inknut Antiqua' ;
+@body-font-family: 'Open Sans' ;
+@quote-font-family: 'Allura' ;
+
+/* global */
+
+.sheet-quote{
+  font-family: @quote-font-family;
+}
+
+.sheet-source{
+  font-family: @quote-font-family;
+}
+
+.sheet-global {
+  width: 1024px;
+  font-family: @body-font-family;
+}
+
+input[type="number"]{
+    line-height: 18px;
+    width: 40px;
+    border-width: 0px 0px 1px 0px;
+    border-style: dotted;
+}
+
+input[type="text"]{
+    line-height: 18px;
+    width: 40px;
+    border-width: 0px 0px 1px 0px;
+    border-style: dotted;
+}
+
+.sheet-number-attribute{
+    line-height: 19px;
+    min-width: 40px;
+    max-width: 40px;
+    border-width: 0px 0px 1px 0px;
+    border-style: dotted;
+    background-color: @background-text;
+}
+
+.sheet-string-attribute{
+    line-height: 19px;
+    min-width: 100px;
+    max-width: 100px;
+    border-width: 0px 0px 1px 0px;
+    border-style: dotted;
+    background-color: @background-text;
+}
+
+/* titles */
+.sheet-title{
+  font-family: @title-font-family, serif;
+  font-variant: small-caps;
+  line-height: 150%;
+  margin:0;
+  background-color: @background-title;
+  color: @foreground-title;
+  text-align: center;
+  &.sheet-left{
+    text-align: left;
+  }
+}
+
+h1.sheet-title{
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+h2.sheet-title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h3.sheet-title{
+  font-size: 16px;
+  font-weight: bold;
+  background-color: @foreground-title;
+  color: @background-title;
+}
+
+.sheet-headerblock {
+  margin-bottom: 10px;
+  header{
+    .sheet-quote{
+      background-color: @background-text;
+      color: @foreground-text;
+      font-size: 20px;
+      text-align: center;
+    }
+    .sheet-source{
+      background-color: @background-text;
+      color: @foreground-text;
+      font-size: 14px;
+      text-align: right;
+    }
+  }
+  .sheet-main-stats{
+    height: 240px;
+    .sheet-carac{
+      height: 100%;
+      width:700px;
+      float: left;
+      border-width: 1px 0px 1px 1px;
+      border-color: @background-title;
+      border-style: solid;
+      /*table{
+        border-width: 1px;
+        border-style: solid;
+        td{
+          border-width: 1px;
+          border-style: solid;
+        }
+      }*/
+    }
+    .sheet-metamorphe{
+      height: 100%;
+      width:321px;
+      float: right;
+      border: 1px solid @background-title;
+      div{
+        div{
+          float:left;
+          &:first-child{
+            width:45%;
+          }
+          &:nth-child(2){
+            width:55%;
+            max-width:55%;
+          }
+        }
+        &:after{
+          content: "";
+          display: table;
+          clear: both;
+        }
+      }
+    }
+    table{
+      border-spacing: 20px 2px;
+    }
+  }
+}
+
+input[type=radio].sheet-menu{
+    margin: 0;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    padding: 0;
+    display: inline-block;
+    opacity: 0;
+    width: 150px;
+    height: 25px;
+    z-index: 30;
+    &+span{
+      color: @background-text;
+      background-color: @foreground-text;
+      font-size:15px;
+      text-align:center;
+      display: inline-block;
+      width: 150px;
+      height: 28px;
+      margin: 0;
+      margin-left: -150px;
+      margin-right: 5px;
+      padding:0;
+      margin-bottom: -1px;
+      padding-top: 5px;
+      font-style: italic;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #231F20;
+      border-top-left-radius:4px;
+      border-top-right-radius:4px;
+      z-index: 20;
+    }
+    &:checked{
+      &+span{
+        border-bottom: 1px solid white;
+        font-weight: bold;
+        background-color: @background-text;
+        color: @foreground-text;
+      }
+    }
+}
+
+div.sheet-menu{
+  width: 100%;
+  border-top: thin solid #000;
+  display:none;
+}
+
+input[type=radio].sheet-menu-pentacle{
+  &:checked{
+    &~div{
+      &.sheet-menu-pentacle{
+        display: block;
+      }
+    }
+  }
+}
+
+input[type=radio].sheet-menu-simulacre{
+  &:checked{
+    &~div{
+      &.sheet-menu-simulacre{
+        display: block;
+      }
+    }
+  }
+}
+
+input[type=radio].sheet-menu-so{
+  &:checked{
+    &~div{
+      &.sheet-menu-so{
+        display: block;
+      }
+    }
+  }
+}
+
+input[type=radio].sheet-menu-divers{
+  &:checked{
+    &~div{
+      &.sheet-menu-divers{
+        display: block;
+      }
+    }
+  }
+}
+
+.sheet-menu-pentacle{
+  .sheet-pentacle-midle{
+    float:left;
+    border: 1px solid @background-title;
+    height: 500px;
+    table{
+      width:100%;
+    }
+  }
+  .sheet-pentacle-left{
+    width:204px;
+    .sheet-string-attribute{
+      width: 100%;
+      max-width: 100%;
+      margin:5px 0px;
+    }
+  }
+  .sheet-pentacle-center{
+    width:612px;
+    border-width: 1px 0px
+  }
+  .sheet-pentacle-right{
+    width:204px;
+  }
+}

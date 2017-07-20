@@ -48,6 +48,6 @@ gulp.task('serve',['default','sheet'], function() {
     server: './build',
     port: 3000
   });
-  gulp.watch('styles/*.css', ['processCSS']).on('change', browserSync.reload);
-  gulp.watch('*.html').on('change', browserSync.reload);
+  gulp.watch('**/*.less', ['processCSS','processSheetCSS']).on('change', browserSync.reload);
+  gulp.watch('**/*.html',['processSheetHtml']).on('change', browserSync.reload);
 });
