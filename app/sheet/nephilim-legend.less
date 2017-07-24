@@ -19,6 +19,17 @@
 .sheet-global {
   width: 1024px;
   font-family: @body-font-family;
+  table{
+    th{
+      font-variant: small-caps;
+    }
+  }
+}
+
+fieldset{
+  margin:0;
+  padding: 0;
+  border-style: none;
 }
 
 input[type="number"]{
@@ -47,10 +58,16 @@ input[type="text"]{
 .sheet-string-attribute{
     line-height: 19px;
     min-width: 100px;
-    max-width: 100px;
+//    max-width: 100px;
     border-width: 0px 0px 1px 0px;
     border-style: dotted;
     background-color: @background-text;
+    &.sheet-smaller{
+      min-width:40px;
+    }
+    &.sheet-wider{
+      width: 200px;
+    }
 }
 
 /* titles */
@@ -101,22 +118,17 @@ h3.sheet-title{
     }
   }
   .sheet-main-stats{
-    height: 240px;
+    height: 245px;
     .sheet-carac{
       height: 100%;
-      width:700px;
+      width:699px;
       float: left;
       border-width: 1px 0px 1px 1px;
       border-color: @background-title;
       border-style: solid;
-      /*table{
-        border-width: 1px;
-        border-style: solid;
-        td{
-          border-width: 1px;
-          border-style: solid;
-        }
-      }*/
+      .sheet-symbol{
+        width:20px;
+      }
     }
     .sheet-metamorphe{
       height: 100%;
@@ -141,9 +153,21 @@ h3.sheet-title{
         }
       }
     }
-    table{
-      border-spacing: 20px 2px;
+  }
+  .sheet-carac-simulacre{
+    border: 1px solid;
+    div{
+      width:33%;
+      float:left;
     }
+    &:after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  table{
+    border-spacing: 20px 2px;
   }
 }
 
@@ -205,10 +229,10 @@ input[type=radio].sheet-menu-pentacle{
   }
 }
 
-input[type=radio].sheet-menu-simulacre{
+input[type=radio].sheet-menu-skills{
   &:checked{
     &~div{
-      &.sheet-menu-simulacre{
+      &.sheet-menu-skills{
         display: block;
       }
     }
@@ -239,7 +263,7 @@ input[type=radio].sheet-menu-divers{
   .sheet-pentacle-midle{
     float:left;
     border: 1px solid @background-title;
-    height: 500px;
+    height: 520px;
     table{
       width:100%;
     }
@@ -253,10 +277,286 @@ input[type=radio].sheet-menu-divers{
     }
   }
   .sheet-pentacle-center{
-    width:612px;
-    border-width: 1px 0px
+    width:611px;
+    border-width: 1px 0px;
+    position: relative;
+    img{
+      display: block;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .sheet-pentacle-element{
+      z-index: 100;
+      position: absolute;
+      &.sheet-fire{
+        top:205px;
+        left:390px;
+      }
+      &.sheet-air{
+        top:240px;
+        left:170px;
+      }
+      &.sheet-water{
+        top:370px;
+        left:240px;
+      }
+      &.sheet-earth{
+        top:350px;
+        left:370px;
+      }
+      &.sheet-moon{
+        top:150px;
+        left:270px;
+      }
+    }
   }
   .sheet-pentacle-right{
     width:204px;
+    table{
+      border-spacing: 0px 19px;
+      td{
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
+  >div:first-child{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.sheet-awakenings{
+  table{
+    width:1024px;
+    th{
+      width: 80px;
+    }
+    td{
+      width: 80px;
+      div{
+        margin-left: auto;
+        margin-right: auto;
+        width: 80px;
+      }
+    }
+    border: 1px solid;
+    border-spacing: 20px 2px;
+    .sheet-wider{
+        width:200px;
+    }
+
+  }
+}
+
+.sheet-menu-skills{
+  >div{
+    width: 33%;
+    border: 1px solid;
+    float:left;
+    .sheet-skill{
+      float:left;
+      margin:4px 6px;
+      &.sheet-name{
+        width: 150px;
+      }
+      &.sheet-simulacre:after{
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+  }
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .sheet-title{
+    text-align: left;
+  }
+  .sheet-base{
+    >div{
+      float: left;
+      &:nth-child(1){
+        color:@foreground-title;
+        background-color: @background-title;
+        font-variant: small-caps;
+        width:85%;
+      }
+      &:nth-child(2){
+        width:15%;
+      }
+    }
+
+    &:after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+.sheet-menu-so{
+  >div{
+    width: 33%;
+    border: 1px solid;
+    float:left;
+    .sheet-skill{
+      float:left;
+      margin:10px 6px;
+      &.sheet-name{
+        width: 230px;
+        font-variant: small-caps;
+        font-weight: bold;
+      }
+      &.sheet-experience:after{
+        content: "";
+        display: table;
+        clear: both;
+      }
+      &.sheet-way{
+        width: 200px;
+        font-variant: small-caps;
+        font-weight: bold;
+        &.sheet-string-attribute{
+          width:100px;
+          &:after{
+            content: "";
+            display: table;
+            clear: both;
+          }
+        }
+      }
+    }
+  }
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .sheet-sort.sheet-block{
+    >div{
+      float:left;
+      margin: 2px 10px 2px 0px;
+    }
+    &:after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .sheet-field-label{
+      width:90px;
+
+    }
+
+  }
+  .sheet-sort.sheet-description{
+    display:none;
+    border: 1px 0px;
+    position: relative;
+    width:100%;
+  }
+  input[type=checkbox].sheet-show-desc{
+    margin: 0;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    padding: 0;
+    display: inline-block;
+    opacity: 0;
+    width: 25px;
+    height: 25px;
+    z-index: 30;
+    &+span{
+      color: @background-text;
+      background-color: @foreground-text;
+      font-size:10px;
+      text-align:center;
+      display: inline-block;
+      width: 25px;
+      height: 20px;
+      margin: 0;
+      margin-left: -25px;
+      margin-right: 5px;
+      padding:0;
+      margin-bottom: -1px;
+      padding-top: 5px;
+      font-style: italic;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #231F20;
+      border-radius:4px;
+      //border-top-right-radius:4px;
+      z-index: 20;
+    }
+    &:checked{
+      &+span{
+        //border-bottom: 1px solid white;
+        font-weight: bold;
+        background-color: @background-text;
+        color: @foreground-text;
+      }
+    }
+  }
+  input[type=checkbox].sheet-show-desc:checked ~ .sheet-description{
+    display:block;
+  }
+}
+
+.sheet-menu-divers{
+  .sheet-weapon{
+    >div{
+      border: 1px solid;
+      float:left;
+    }
+    .sheet-weapon-close{
+      width:400px;
+      table{
+        border-spacing: 20px 2px;
+        .sheet-col1{width: 150px}
+        .sheet-col2{width: 40px}
+        .sheet-col3{width: 40px}
+        .sheet-col4{width: 40px}
+      }
+    }
+    .sheet-weapon-distance{
+      width:620px;
+      table{
+        border-spacing: 20px 2px;
+        .sheet-col1{width: 150px}
+        .sheet-col2{width: 40px}
+        .sheet-col3{width: 40px}
+        .sheet-col4{width: 40px}
+        .sheet-col5{width: 40px}
+        .sheet-col6{width: 40px}
+        .sheet-col7{width: 40px}
+      }
+    }
+    &:after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  .sheet-more-occult{
+    >div{
+      border: 1px solid;
+      float:left;
+    }
+    .sheet-athanor{
+      width:400px;
+    }
+    .sheet-artefacts{
+      width:620px;
+    }
+    &:after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  .sheet-equipment{
+    border: 1px solid;
   }
 }
